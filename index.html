@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Σχολή Οδηγών Drive On | Ντούκας - Πολυτάρχου | Καλλιθέα</title>
+  <meta name="description" content="Σχολή Οδηγών Drive On στην Καλλιθέα (Φιλαρέτου 129). Διπλώματα αυτοκινήτου, αυτόματο, μοτοσυκλέτες, Κωδικός 121, μετεκπαίδευση και αναθεωρήσεις." />
+  <link rel="canonical" href="https://driveonkallithea.gr/" />
+  <link rel="icon" type="image/png" href="driveon-assets/driveon_circle_logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://driveonkallithea.gr/" />
+  <meta property="og:title" content="Σχολή Οδηγών Drive On | Ντούκας - Πολυτάρχου | Καλλιθέα" />
+  <meta property="og:description" content="Σχολή Οδηγών Drive On στην Καλλιθέα (Φιλαρέτου 129). Διπλώματα αυτοκινήτου, αυτόματο, μοτοσυκλέτες, Κωδικός 121, μετεκπαίδευση και αναθεωρήσεις." />
+  <meta property="og:image" content="https://driveonkallithea.gr/driveon-assets/panel_hero_car.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================
+       DESIGN TOKENS & BASE RESET (MINIMAL & MOBILE-FIRST)
+       ========================================================= */
+    :root {
+      --ink: #1a1d23;
+      --muted: #666c75;
+      --line: #e6e8ec;
+      --bg: #ffffff;
+      --soft: #f7f8fa;
+      --accent: #d6322b;
+      --accent-dark: #b6251f;
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 76px;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* =========================================================
+       1. TOP INFO BAR
+       ========================================================= */
+    .top-bar {
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .top-bar .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      padding-top: 9px;
+      padding-bottom: 9px;
+    }
+
+    .top-contacts {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+    }
+
+    .top-bar a {
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .top-bar a:hover {
+      color: var(--accent);
+    }
+
+    .top-wa {
+      color: #15803d;
+      font-weight: 600 !important;
+    }
+
+    .top-wa:hover {
+      color: #166534 !important;
+    }
+
+    /* =========================================================
+       2. STICKY HEADER & NAVIGATION
+       ========================================================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      display: none;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .logo-fallback span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #343942;
+      padding: 8px 0;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Desktop Dropdown */
+    .dd {
+      position: relative;
+    }
+
+    .dd > a::after {
+      content: " ▾";
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+
+    .dd ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: -14px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      min-width: 250px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 8px 0;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .dd:hover ul,
+    .dd:focus-within ul {
+      display: flex;
+    }
+
+    .dd ul a {
+      display: block;
+      padding: 10px 16px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .dd ul a:hover {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #ffffff !important;
+      padding: 10px 18px !important;
+      border-radius: var(--radius);
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+    }
+
+    /* Mobile Hamburger Button (>= 44px touch target) */
+    .burger {
+      display: none;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--ink);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       3. HERO SECTION
+       ========================================================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 440px;
+      height: 62vh;
+      max-height: 560px;
+      background: #1a1d23;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(16, 18, 23, 0.78) 0%, rgba(16, 18, 23, 0.42) 55%, rgba(16, 18, 23, 0.16) 100%);
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #ffffff;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4.4vw, 3.15rem);
+      line-height: 1.15;
+      max-width: 640px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .hero p {
+      margin: 16px 0 28px;
+      max-width: 540px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(0.98rem, 1.5vw, 1.08rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.94rem;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.78);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* =========================================================
+       4. SHARED SECTIONS & ABOUT
+       ========================================================= */
+    section {
+      padding: 80px 0;
+    }
+
+    .bg-soft {
+      background: var(--soft);
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+    }
+
+    .about-body {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-body p {
+      color: #3b4049;
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .about-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================================================
+       5. DIPLOMAS SECTION (3-COLUMN EDITORIAL CARDS)
+       ========================================================= */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .editorial-card {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .card-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #e5e7eb;
+      margin-bottom: 18px;
+      border-radius: 2px;
+    }
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .editorial-card:hover .card-thumb img {
+      transform: scale(1.04);
+    }
+
+    /* Sharp red "ΠΕΡΙΣΣΟΤΕΡΑ" badge pinned bottom-right of image */
+    .badge-more {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: var(--accent);
+      color: #ffffff;
+      border: 0;
+      padding: 10px 18px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .badge-more:hover {
+      background: var(--accent-dark);
+    }
+
+    .editorial-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .editorial-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+      padding: 0 6px;
+    }
+
+    /* =========================================================
+       6. SERVICES & PROCEDURES SECTION (EXACT 2ND SCREENSHOT LAYOUT)
+       ========================================================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .feature-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 10px;
+    }
+
+    /* Flanking 1.5px red accent lines next to centered heading */
+    .flanked-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      margin-bottom: 22px;
+    }
+
+    .flanked-title::before,
+    .flanked-title::after {
+      content: "";
+      flex: 1;
+      min-width: 24px;
+      height: 1.5px;
+      background: var(--accent);
+    }
+
+    .flanked-title span {
+      font-size: clamp(1.45rem, 2.2vw, 1.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .feature-col p {
+      color: #3b4049;
+      font-size: 0.96rem;
+      line-height: 1.75;
+      max-width: 340px;
+      margin-bottom: 26px;
+    }
+
+    .btn-outline-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 26px;
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+      border-radius: 0;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    /* =========================================================
+       7. CONTACT SECTION & EMBEDDED MAP
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-item b {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .info-item span,
+    .info-item a {
+      font-size: 0.97rem;
+      color: var(--ink);
+    }
+
+    .info-item a:hover {
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+    }
+
+    .social-links a {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    .map-frame {
+      margin-top: 8px;
+      width: 100%;
+      height: 220px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #e5e7eb;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-form {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 12px 14px;
+      border: 1px solid #d5d9e0;
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--ink);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(214, 50, 43, 0.14);
+    }
+
+    textarea {
+      min-height: 98px;
+      resize: vertical;
+    }
+
+    .form-status {
+      display: none;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #166534;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .form-status a {
+      color: #15803d;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* =========================================================
+       8. MINIMAL FOOTER
+       ========================================================= */
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+      padding: 28px 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+
+    footer a {
+      font-weight: 600;
+      color: var(--ink);
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================================================
+       9. DETAILS MODAL (MOBILE-FRIENDLY)
+       ========================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 70;
+      background: rgba(15, 18, 24, 0.65);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg);
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+      padding: 28px;
+      position: relative;
+      animation: modalIn 0.2s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .modal-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .modal-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+      padding-right: 36px;
+    }
+
+    .modal-intro {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 18px;
+    }
+
+    .modal-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .modal-list li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.93rem;
+      color: #2e333b;
+    }
+
+    .modal-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .modal-actions .btn-primary {
+      flex: 1;
+    }
+
+    /* =========================================================
+       10. FLOATING QUICK ACTIONS (WHATSAPP + CALL)
+       ========================================================= */
+    .fab-group {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 35;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fab-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .fab-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.95);
+    }
+
+    .fab-wa {
+      background: #22c55e;
+    }
+
+    .fab-call {
+      background: var(--accent);
+    }
+
+    .fab-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* =========================================================
+       RESPONSIVE BREAKPOINTS (TABLET & SMARTPHONE)
+       ========================================================= */
+    @media (max-width: 920px) {
+      .grid-3,
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .feature-col {
+        padding: 4px 0 8px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .burger {
+        display: inline-flex;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 12px 20px 22px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+      }
+
+      nav a {
+        display: block;
+        padding: 11px 4px;
+        font-size: 0.86rem;
+      }
+
+      .dd > a::after {
+        display: none;
+      }
+
+      .dd ul {
+        display: flex;
+        position: static;
+        border: 0;
+        box-shadow: none;
+        padding: 0 0 6px 14px;
+        min-width: 0;
+      }
+
+      .dd ul a {
+        padding: 8px 6px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .nav-cta {
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 58px 0;
+      }
+
+      .top-bar .wrap {
+        justify-content: center;
+        text-align: center;
+        gap: 4px 12px;
+        font-size: 0.8rem;
+      }
+
+      .top-contacts {
+        justify-content: center;
+      }
+
+      .hero {
+        height: auto;
+        min-height: 410px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+
+      .modal-card {
+        padding: 22px 18px;
+      }
+
+      footer .wrap {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- =========================================================
+       1. TOP INFO BAR
+       ========================================================= -->
+  <div class="top-bar">
+    <div class="wrap">
+      <span>📍 Φιλαρέτου 129 &amp; Ακροπόλεως 15, Καλλιθέα</span>
+      <div class="top-contacts">
+        <a href="tel:2110088403">211 0088403</a>
+        <span>&middot;</span>
+        <a href="tel:6987709305">698 770 9305</a>
+        <span>&middot;</span>
+        <a class="top-wa" href="https://wa.me/306987709305" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       2. STICKY HEADER
+       ========================================================= -->
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#top" aria-label="Σχολή Οδηγών Drive On - Αρχική">
+        <img
+          src="driveon-assets/driveon_clean_logo.png"
+          alt="Σχολή Οδηγών Drive On"
+          referrerpolicy="no-referrer"
+          onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='inline-block';"
+        />
+        <span id="logoFallback" class="logo-fallback">DRIVE <span>ON</span></span>
+      </a>
+
+      <button
+        id="menuToggle"
+        class="burger"
+        type="button"
+        aria-label="Άνοιγμα μενού πλοήγησης"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >☰</button>
+
+      <nav id="mainNav" aria-label="Κύρια πλοήγηση">
+        <ul>
+          <li><a href="#top">Αρχική</a></li>
+          <li><a href="#about">Σχετικά με εμάς</a></li>
+
+          <li class="dd">
+            <a href="#diplomata">Διπλώματα</a>
+            <ul>
+              <li><a href="#diplomata" data-open-modal="car">Δίπλωμα Αυτοκινήτου</a></li>
+              <li><a href="#diplomata" data-open-modal="auto">Δίπλωμα με Αυτόματο</a></li>
+              <li><a href="#diplomata" data-open-modal="moto">Κωδικός 121 (125cc)</a></li>
+              <li><a href="#diplomata" data-open-modal="moto">Δίπλωμα Μοτοσυκλέτας</a></li>
+            </ul>
+          </li>
+
+          <li class="dd">
+            <a href="#ypiresies">Υπηρεσίες</a>
+            <ul>
+              <li><a href="#ypiresies" data-open-modal="renewals">Αναθεωρήσεις - Διεκπεραιώσεις</a></li>
+              <li><a href="#ypiresies" data-open-modal="retraining">Μετεκπαίδευση Οδηγών</a></li>
+              <li><a href="#ypiresies" data-open-modal="idp">Διεθνές Δίπλωμα &amp; Αντίγραφα</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#contact" class="nav-cta">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       3. HERO SECTION
+       ========================================================= -->
+  <div class="hero">
+    <img
+      class="hero-img"
+      src="driveon-assets/panel_hero_car.jpg"
+      referrerpolicy="no-referrer"
+      alt="Σχολή Οδηγών Drive On Καλλιθέα - Εκπαιδευτικό αυτοκίνητο"
+      onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=80';"
+    />
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <h1>Μαθαίνεις να οδηγείς σωστά. Χωρίς άγχος.</h1>
+      <p>Ολοκληρωμένη εκπαίδευση για αυτοκίνητο (χειροκίνητο &amp; αυτόματο) και μοτοσυκλέτα στην Καλλιθέα.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Επικοινωνήστε μαζί μας</a>
+        <a class="btn btn-ghost" href="tel:2110088403">📞 211 0088403</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       4. ABOUT SECTION
+       ========================================================= -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom: 24px;">
+        <span class="eyebrow">Ντούκας &amp; Πολυτάρχου &middot; Καλλιθέα</span>
+        <h2>Σχολή Οδηγών Drive On</h2>
+      </div>
+      <div class="about-body">
+        <p>Η Σχολή Οδηγών Drive On στην Καλλιθέα προσφέρει σύγχρονη, ουσιαστική και ασφαλή εκπαίδευση τόσο στο θεωρητικό όσο και στο πρακτικό κομμάτι της οδήγησης, με στόχο να αποκτήσετε πραγματική αυτοπεποίθηση στον δρόμο.</p>
+        <p>Διαθέτουμε σύγχρονα εκπαιδευτικά οχήματα (χειροκίνητο και αυτόματο κιβώτιο), εκπαίδευση για όλες τις κατηγορίες μοτοσυκλετών, μαθήματα μετεκπαίδευσης οδηγών καθώς και γρήγορες διεκπεραιώσεις ανανεώσεων με υπομονή και επαγγελματισμό.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. DIPLOMAS SECTION (3-COLUMN EDITORIAL CARDS)
+       ========================================================= -->
+  <section id="diplomata" class="bg-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Εκπαίδευση Υποψηφίων</span>
+        <h2>Διπλώματα</h2>
+        <p class="lead">Επιλέξτε την κατηγορία διπλώματος που σας ενδιαφέρει για να δείτε τις προϋποθέσεις και τη διαδικασία.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Card 1: Car -->
+        <article class="editorial-card">
+          <div class="card-thumb">
+            <img
+              src="driveon-assets/panel_hero_car.jpg"
+              referrerpolicy="no-referrer"
+              alt="Διπλώματα Αυτοκινήτου Κατηγορίας Β - Σχολή Οδηγών Drive On Καλλιθέα"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80';"
+            />
+            <button type="button" class="badge-more" data-modal="car">ΠΕΡΙΣΣΟΤΕΡΑ</button>
+          </div>
+          <h3>Διπλώματα Αυτοκινήτου</h3>
+          <p>Ολοκληρωμένη εκπαίδευση για απόκτηση άδειας οδήγησης κατηγορίας Β από 17 ή 18 ετών, με σύγχρονα και ευέλικτα οχήματα.</p>
+        </article>
+
+        <!-- Card 2: Automatic -->
+        <article class="editorial-card">
+          <div class="card-thumb">
+            <img
+              src="driveon-assets/panel_gearbox.jpg"
+              referrerpolicy="no-referrer"
+              alt="Δίπλωμα Αυτοκινήτου με Αυτόματο Κιβώτιο - Drive On Καλλιθέα"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80';"
+            />
+            <button type="button" class="badge-more" data-modal="auto">ΠΕΡΙΣΣΟΤΕΡΑ</button>
+          </div>
+          <h3>Δίπλωμα με Αυτόματο</h3>
+          <p>Εκμάθηση οδήγησης με αυτόματο κιβώτιο ταχυτήτων. Χωρίς άγχος για συμπλέκτη και ανηφόρες, ιδανικό για ξεκούραστη οδήγηση στην πόλη.</p>
+        </article>
+
+        <!-- Card 3: Motorcycles & Code 121 -->
+        <article class="editorial-card">
+          <div class="card-thumb">
+            <img
+              src="driveon-assets/post_8.jpg"
+              referrerpolicy="no-referrer"
+              alt="Διπλώματα Μοτοσυκλετών και Κωδικός 121 έως 125cc - Drive On"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80';"
+            />
+            <button type="button" class="badge-more" data-modal="moto">ΠΕΡΙΣΣΟΤΕΡΑ</button>
+          </div>
+          <h3>Μοτοσυκλέτες &amp; Κωδικός 121</h3>
+          <p>Όλες οι κατηγορίες δικύκλων (AM, A1, A2, A) καθώς και Κωδικός 121 (έως 125cc) με 5 πρακτικά μαθήματα χωρίς εξετάσεις.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. SERVICES & PROCEDURES (3-COLUMN EDITORIAL LAYOUT)
+       ========================================================= -->
+  <section id="ypiresies">
+    <div class="wrap">
+      <div class="services-grid">
+        <!-- Column 1: Text Feature Block -->
+        <div class="feature-col">
+          <h2 class="flanked-title">
+            <span>Αναθεωρήσεις -<br />Διεκπεραιώσεις</span>
+          </h2>
+          <p>Η Σχολή Οδηγών Drive On αναλαμβάνει με επαγγελματισμό και ταχύτητα τις αναθεωρήσεις και τις διεκπεραιώσεις των διπλωμάτων οδήγησης, προσφέροντας ολοκληρωμένες υπηρεσίες που καλύπτουν κάθε ανάγκη των μαθητών μας.</p>
+          <button type="button" class="btn-outline-dark" data-modal="renewals">ΠΕΡΙΣΣΟΤΕΡΑ</button>
+        </div>
+
+        <!-- Column 2: Retraining Card -->
+        <article class="editorial-card">
+          <div class="card-thumb">
+            <img
+              src="driveon-assets/panel_happy_student.jpg"
+              referrerpolicy="no-referrer"
+              alt="Μετεκπαίδευση Οδηγών με ασφάλεια - Σχολή Οδηγών Drive On"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80';"
+            />
+            <button type="button" class="badge-more" data-modal="retraining">ΠΕΡΙΣΣΟΤΕΡΑ</button>
+          </div>
+          <h3>Μετεκπαίδευση Οδηγών</h3>
+          <p>Πρακτικά μαθήματα επανεκπαίδευσης για ήδη κατόχους διπλώματος που επιθυμούν να αποκτήσουν αυτοπεποίθηση και να οδηγήσουν με ασφάλεια και ηρεμία.</p>
+        </article>
+
+        <!-- Column 3: IDP & Copies Card -->
+        <article class="editorial-card">
+          <div class="card-thumb">
+            <img
+              src="driveon-assets/panel_services.jpg"
+              referrerpolicy="no-referrer"
+              alt="Διεθνές Δίπλωμα Οδήγησης και Αντίγραφα Αδειών - Drive On Καλλιθέα"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80';"
+            />
+            <button type="button" class="badge-more" data-modal="idp">ΠΕΡΙΣΣΟΤΕΡΑ</button>
+          </div>
+          <h3>Διεθνές Δίπλωμα &amp; Αντίγραφα</h3>
+          <p>Έκδοση Διεθνούς Διπλώματος (IDP), αντικατάσταση παλαιού τύπου άδειας με νέου τύπου κάρτα και άμεση έκδοση αντιγράφου λόγω απώλειας ή φθοράς.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7. CONTACT SECTION & GOOGLE MAPS
+       ========================================================= -->
+  <section id="contact" class="bg-soft">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Είμαστε δίπλα σας</span>
+        <h2>Επικοινωνία</h2>
+        <p class="lead">Καλέστε μας, επισκεφθείτε τη σχολή στην Καλλιθέα ή στείλτε μας άμεσα μήνυμα.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left Column: Info + Map -->
+        <div class="contact-info">
+          <div class="info-item">
+            <b>Διεύθυνση</b>
+            <span>Φιλαρέτου 129 &amp; Ακροπόλεως 15, Καλλιθέα, Τ.Κ. 17675</span>
+          </div>
+
+          <div class="info-item">
+            <b>Τηλέφωνο</b>
+            <a href="tel:2110088403">211 0088403</a>
+          </div>
+
+          <div class="info-item">
+            <b>Κινητά</b>
+            <span>
+              <a href="tel:6987709305">698 770 9305</a> &middot;
+              <a href="tel:6986910564">698 691 0564</a>
+            </span>
+          </div>
+
+          <div class="info-item">
+            <b>Ωράριο Λειτουργίας</b>
+            <span>Δευτέρα - Παρασκευή: 09:30 - 20:30</span>
+          </div>
+
+          <div class="info-item">
+            <b>Social Media</b>
+            <div class="social-links">
+              <a href="https://www.facebook.com/61585877729104" target="_blank" rel="noopener">Facebook</a>
+              <a href="https://www.instagram.com/driveon_sxoli_odigon/" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://wa.me/306987709305" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="map-frame">
+            <iframe
+              title="Χάρτης Σχολής Οδηγών Drive On - Φιλαρέτου 129, Καλλιθέα"
+              src="https://maps.google.com/maps?q=%CE%A6%CE%B9%CE%BB%CE%B1%CF%81%CE%AD%CF%84%CE%BF%CF%85%20129,%20%CE%9A%CE%B1%CE%BB%CE%BB%CE%B9%CE%B8%CE%AD%CE%B1%2017675&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Right Column: WhatsApp Contact Form -->
+        <form id="contactForm" class="contact-form">
+          <div>
+            <label class="field-label" for="fName">Ονοματεπώνυμο *</label>
+            <input id="fName" name="name" type="text" required placeholder="π.χ. Γιώργος Παπαδόπουλος" autocomplete="name" />
+          </div>
+
+          <div>
+            <label class="field-label" for="fPhone">Τηλέφωνο *</label>
+            <input id="fPhone" name="phone" type="tel" required placeholder="π.χ. 69XXXXXXXX" autocomplete="tel" />
+          </div>
+
+          <div>
+            <label class="field-label" for="fService">Υπηρεσία / Δίπλωμα</label>
+            <select id="fService" name="service">
+              <option value="Δίπλωμα Αυτοκινήτου (Χειροκίνητο)">Δίπλωμα Αυτοκινήτου (Χειροκίνητο)</option>
+              <option value="Δίπλωμα με Αυτόματο">Δίπλωμα με Αυτόματο</option>
+              <option value="Μοτοσυκλέτες & Κωδικός 121 (125cc)">Μοτοσυκλέτες &amp; Κωδικός 121 (125cc)</option>
+              <option value="Αναθεωρήσεις - Διεκπεραιώσεις">Αναθεωρήσεις - Διεκπεραιώσεις</option>
+              <option value="Μετεκπαίδευση Οδηγών">Μετεκπαίδευση Οδηγών</option>
+              <option value="Διεθνές Δίπλωμα & Αντίγραφα">Διεθνές Δίπλωμα &amp; Αντίγραφα</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="field-label" for="fNotes">Σημειώσεις</label>
+            <textarea id="fNotes" name="notes" placeholder="Γράψτε μας προτιμώμενες ώρες ή οποιαδήποτε ερώτηση..."></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Αποστολή μέσω WhatsApp</button>
+          <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       8. MINIMAL FOOTER
+       ========================================================= -->
+  <footer>
+    <div class="wrap">
+      <span>&copy; 2026 Σχολή Οδηγών Drive On &middot; Ντούκας - Πολυτάρχου &middot; Καλλιθέα</span>
+      <span>Σχεδιασμός από την <a href="https://uplogic.gr" target="_blank" rel="noopener">UpLogic</a></span>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       9. INTERACTIVE DETAILS MODAL
+       ========================================================= -->
+  <div id="detailsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button id="modalClose" class="modal-close" type="button" aria-label="Κλείσιμο παραθύρου">&times;</button>
+      <span id="modalTag" class="modal-tag"></span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalIntro" class="modal-intro"></p>
+      <ul id="modalList" class="modal-list"></ul>
+      <div class="modal-actions">
+        <button id="modalInterestBtn" type="button" class="btn btn-primary">Εκδήλωση Ενδιαφέροντος</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       10. FLOATING QUICK ACTIONS (WHATSAPP + CALL)
+       ========================================================= -->
+  <div class="fab-group" aria-label="Γρήγορη επικοινωνία">
+    <a class="fab-btn fab-wa" href="https://wa.me/306987709305" target="_blank" rel="noopener" aria-label="Επικοινωνία στο WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.35.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.89 11.89 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42zM12.07 21.8h-.01a9.89 9.89 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.52-5.26c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.45 9.87-9.91 9.87zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+      </svg>
+    </a>
+    <a class="fab-btn fab-call" href="tel:2110088403" aria-label="Τηλεφωνική κλήση στο 211 0088403">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT (Menu, Details Modal, Pre-select & WhatsApp Form)
+       ========================================================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------------------------------------------------------
+         1. DETAILS DATA FOR INTERACTIVE MODAL
+         --------------------------------------------------------- */
+      const SERVICE_DETAILS = {
+        car: {
+          tag: 'Κατηγορία Β · Χειροκίνητο',
+          title: 'Διπλώματα Αυτοκινήτου',
+          intro: 'Ολοκληρωμένη θεωρητική και πρακτική εκπαίδευση σε σύγχρονα οχήματα με έμπειρους εκπαιδευτές στην Καλλιθέα.',
+          selectValue: 'Δίπλωμα Αυτοκινήτου (Χειροκίνητο)',
+          points: [
+            'Όριο ηλικίας: Από 17 ετών (με συνοδό έως τα 18) ή από 18 ετών για πλήρη άδεια.',
+            'Υποχρεωτικά μαθήματα: 21 ώρες θεωρητικής και 25 ώρες πρακτικής εκπαίδευσης.',
+            'Δικαιολογητικά: Ταυτότητα ή διαβατήριο, ΑΦΜ, 4 έγχρωμες φωτογραφίες διαβατηρίου & ιατρικές βεβαιώσεις (παθολόγου & οφθαλμιάτρου).',
+            'Ευέλικτο ωράριο μαθημάτων προσαρμοσμένο στο πρόγραμμά σας.'
+          ]
+        },
+        auto: {
+          tag: 'Κατηγορία Β · Κωδικός 78',
+          title: 'Δίπλωμα με Αυτόματο',
+          intro: 'Ιδανική επιλογή για γρήγορη και ξεκούραστη εκμάθηση οδήγησης στην πόλη, χωρίς το άγχος του συμπλέκτη και των ανηφορών.',
+          selectValue: 'Δίπλωμα με Αυτόματο',
+          points: [
+            'Όριο ηλικίας: Από 17 ή 18 ετών, με τις ίδιες προϋποθέσεις της κατηγορίας Β.',
+            'Μαθήματα: 21 ώρες θεωρίας & 25 ώρες πρακτικής σε σύγχρονο αυτόματο όχημα.',
+            'Απαραίτητα δικαιολογητικά: Ταυτότητα, ΑΦΜ, 4 φωτογραφίες διαβατηρίου και ιατρικά πιστοποιητικά.',
+            'Εύκολη μετατροπή σε χειροκίνητο στο μέλλον αν το θελήσετε, μόνο με πρακτική εξέταση.'
+          ]
+        },
+        moto: {
+          tag: 'AM · A1 · A2 · A & Κωδικός 121',
+          title: 'Μοτοσυκλέτες & Κωδικός 121',
+          intro: 'Εκπαίδευση σε όλες τις κατηγορίες δικύκλων με έμφαση στην ισορροπία, τα φρένα και την ασφαλή κίνηση στην πόλη.',
+          selectValue: 'Μοτοσυκλέτες & Κωδικός 121 (125cc)',
+          points: [
+            'Κωδικός 121 (έως 125cc): Για κατόχους διπλώματος Β άνω των 6 ετών & ηλικίας 27+ — μόνο 5 πρακτικά μαθήματα χωρίς εξετάσεις.',
+            'Κατηγορίες: AM (50cc από 16 ετών), A1 (125cc από 18), A2 (έως 35kW από 20) & A (απεριορίστων από 24 ή 2 έτη A2).',
+            'Ειδικά διαμορφωμένη πίστα ασκήσεων και διαδρομές σε πραγματικές συνθήκες κυκλοφορίας.',
+            'Αναλαμβάνουμε πλήρως την κατάθεση φακέλου και τα παράβολα.'
+          ]
+        },
+        renewals: {
+          tag: 'Διοικητικές Υπηρεσίες',
+          title: 'Αναθεωρήσεις - Διεκπεραιώσεις',
+          intro: 'Γρήγορη και υπεύθυνη διεκπεραίωση για κάθε είδους ανανέωση ή αλλαγή στην άδεια οδήγησής σας, χωρίς ταλαιπωρία σε ουρές.',
+          selectValue: 'Αναθεωρήσεις - Διεκπεραιώσεις',
+          points: [
+            'Ανανέωση ερασιτεχνικών (άνω των 65 ετών) και επαγγελματικών διπλωμάτων κάθε 5 έτη.',
+            'Καθοδήγηση για τα ιατρικά πιστοποιητικά (παθολόγος, οφθαλμίατρος) και έκδοση e-Παραβόλων.',
+            'Άρση παρατηρήσεων, μετατροπή ξένου διπλώματος σε ελληνικό & προσθήκη κατηγοριών.',
+            'Παραλαβή της νέας άδειας άμεσα από τη σχολή μας στην Καλλιθέα.'
+          ]
+        },
+        retraining: {
+          tag: 'Επανεκπαίδευση Οδηγών',
+          title: 'Μετεκπαίδευση Οδηγών',
+          intro: 'Εξατομικευμένα πρακτικά μαθήματα για κατόχους διπλώματος που δεν έχουν οδηγήσει πρόσφατα ή θέλουν να ξεπεράσουν το άγχος.',
+          selectValue: 'Μετεκπαίδευση Οδηγών',
+          points: [
+            'Δυνατότητα εκπαίδευσης σε χειροκίνητο ή αυτόματο εκπαιδευτικό όχημα με διπλά πεντάλ.',
+            'Εστίαση σε παρκάρισμα, ανηφόρες, κυκλοφορία σε κεντρικούς δρόμους και εθνική οδό.',
+            'Χωρίς δεσμευτικά πακέτα — επιλέγετε ακριβώς όσες ώρες χρειάζεστε.',
+            'Ήρεμο και υποστηρικτικό περιβάλλον για να χτίσετε πραγματική αυτοπεποίθηση.'
+          ]
+        },
+        idp: {
+          tag: 'Ταξίδια & Αντικαταστάσεις',
+          title: 'Διεθνές Δίπλωμα & Αντίγραφα',
+          intro: 'Άμεση εξυπηρέτηση για ταξίδια στο εξωτερικό, αντικατάσταση παλαιού χάρτινου διπλώματος ή έκδοση αντιγράφου.',
+          selectValue: 'Διεθνές Δίπλωμα & Αντίγραφα',
+          points: [
+            'Έκδοση Διεθνούς Άδειας Οδήγησης (IDP) για οδήγηση σε χώρες εκτός Ευρωπαϊκής Ένωσης.',
+            'Αντικατάσταση παλαιού τύπου (ροζ τρίπτυχο) με νέου τύπου ευρωπαϊκή πλαστική κάρτα.',
+            'Έκδοση αντιγράφου σε περίπτωση απώλειας, κλοπής ή φθοράς της άδειας.',
+            'Απαιτούνται: Ταυτότητα/Διαβατήριο, ισχύον δίπλωμα (όπου υπάρχει), ΑΦΜ και φωτογραφίες.'
+          ]
+        }
+      };
+
+      /* ---------------------------------------------------------
+         2. MOBILE MENU TOGGLE & AUTO-CLOSE
+         --------------------------------------------------------- */
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      function closeMenu() {
+        mainNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      }
+
+      menuToggle.addEventListener('click', function () {
+        const isOpen = mainNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.textContent = isOpen ? '✕' : '☰';
+      });
+
+      mainNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu();
+          const modalKey = link.getAttribute('data-open-modal');
+          if (modalKey && SERVICE_DETAILS[modalKey]) {
+            setTimeout(function () {
+              openModal(modalKey);
+            }, 350);
+          }
+        });
+      });
+
+      /* ---------------------------------------------------------
+         3. INTERACTIVE DETAILS MODAL
+         --------------------------------------------------------- */
+      const modal = document.getElementById('detailsModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalTag = document.getElementById('modalTag');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalIntro = document.getElementById('modalIntro');
+      const modalList = document.getElementById('modalList');
+      const modalInterestBtn = document.getElementById('modalInterestBtn');
+      const serviceSelect = document.getElementById('fService');
+      const nameInput = document.getElementById('fName');
+      let activeServiceValue = '';
+
+      function openModal(key) {
+        const data = SERVICE_DETAILS[key];
+        if (!data) return;
+
+        modalTag.textContent = data.tag;
+        modalTitle.textContent = data.title;
+        modalIntro.textContent = data.intro;
+        activeServiceValue = data.selectValue;
+
+        modalList.innerHTML = '';
+        data.points.forEach(function (pt) {
+          const li = document.createElement('li');
+          li.textContent = pt;
+          modalList.appendChild(li);
+        });
+
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-modal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openModal(btn.getAttribute('data-modal'));
+        });
+      });
+
+      modalClose.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) {
+          closeModal();
+        }
+      });
+
+      modalInterestBtn.addEventListener('click', function () {
+        closeModal();
+        if (serviceSelect && activeServiceValue) {
+          serviceSelect.value = activeServiceValue;
+        }
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        setTimeout(function () {
+          if (nameInput) nameInput.focus({ preventScroll: true });
+        }, 550);
+      });
+
+      /* ---------------------------------------------------------
+         4. CONTACT FORM -> PRE-FILLED WHATSAPP MESSAGE
+         --------------------------------------------------------- */
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        try {
+          const name = document.getElementById('fName').value.trim();
+          const phone = document.getElementById('fPhone').value.trim();
+          const service = serviceSelect.value;
+          const notes = document.getElementById('fNotes').value.trim();
+
+          if (!name || !phone) return;
+
+          const lines = [
+            'Γεια σας, ενδιαφέρομαι για τη Σχολή Οδηγών Drive On.',
+            'Ονοματεπώνυμο: ' + name,
+            'Τηλέφωνο: ' + phone,
+            'Υπηρεσία: ' + service
+          ];
+          if (notes) lines.push('Σημειώσεις: ' + notes);
+
+          const waUrl = 'https://wa.me/306987709305?text=' + encodeURIComponent(lines.join('\n'));
+          window.open(waUrl, '_blank', 'noopener');
+
+          formStatus.innerHTML =
+            '✓ Το μήνυμά σας ετοιμάστηκε! Αν δεν άνοιξε αυτόματα το WhatsApp, ' +
+            '<a href="' + waUrl + '" target="_blank" rel="noopener">πατήστε εδώ για αποστολή</a>.';
+          formStatus.classList.add('show');
+          contactForm.reset();
+        } catch (err) {
+          formStatus.textContent = 'Παρουσιάστηκε σφάλμα. Παρακαλούμε καλέστε μας στο 211 0088403.';
+          formStatus.classList.add('show');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

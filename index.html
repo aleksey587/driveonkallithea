@@ -426,10 +426,15 @@
       font-size: 0.98rem;
     }
 
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+
     .about-body {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
+      text-align: left;
     }
 
     .about-body p {
@@ -440,6 +445,30 @@
 
     .about-body p:last-child {
       margin-bottom: 0;
+    }
+
+    .about-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--line);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 860px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .about-body {
+        text-align: center;
+      }
     }
 
     /* =========================================================
@@ -1344,13 +1373,19 @@
        ========================================================= -->
   <section id="about">
     <div class="wrap">
-      <div class="section-head" style="margin-bottom: 24px;">
-        <span class="eyebrow">Ντούκας &amp; Πολυτάρχου &middot; Καλλιθέα</span>
-        <h2>Σχολή Οδηγών Drive On</h2>
-      </div>
-      <div class="about-body">
-        <p>Η Σχολή Οδηγών Drive On στην Καλλιθέα (μόλις ~400 μέτρα / 5 λεπτά με τα πόδια από τον σταθμό ΗΣΑΠ Καλλιθέας) προσφέρει σύγχρονη, ουσιαστική και ασφαλή εκπαίδευση τόσο στο θεωρητικό όσο και στο πρακτικό κομμάτι της οδήγησης, με στόχο να αποκτήσετε πραγματική αυτοπεποίθηση στον δρόμο.</p>
-        <p>Διαθέτουμε σύγχρονα εκπαιδευτικά οχήματα, εκπαίδευση για όλες τις κατηγορίες μοτοσυκλετών, διπλώματα φορτηγών (Γ&apos;, ΓΕ&apos;, Π.Ε.Ι.), μαθήματα μετεκπαίδευσης οδηγών, προσεχώς και αυτόματο όχημα, καθώς και γρήγορες διεκπεραιώσεις ανανεώσεων με υπομονή και επαγγελματισμό.</p>
+      <div class="about-grid">
+        <div class="about-body">
+          <span class="eyebrow">Ντούκας &amp; Πολυτάρχου &middot; Καλλιθέα</span>
+          <h2 style="margin-bottom: 18px;">Σχολή Οδηγών Drive On</h2>
+          <p>Η Σχολή Οδηγών Drive On στην Καλλιθέα (μόλις ~400 μέτρα / 5 λεπτά με τα πόδια από τον σταθμό ΗΣΑΠ Καλλιθέας) προσφέρει σύγχρονη, ουσιαστική και ασφαλή εκπαίδευση τόσο στο θεωρητικό όσο και στο πρακτικό κομμάτι της οδήγησης, με στόχο να αποκτήσετε πραγματική αυτοπεποίθηση στον δρόμο.</p>
+          <p>Διαθέτουμε σύγχρονα εκπαιδευτικά οχήματα, εκπαίδευση για όλες τις κατηγορίες μοτοσυκλετών, διπλώματα φορτηγών (Γ&apos;, ΓΕ&apos;, Π.Ε.Ι.), μαθήματα μετεκπαίδευσης οδηγών, προσεχώς και αυτόματο όχημα, καθώς και γρήγορες διεκπεραιώσεις ανανεώσεων με υπομονή και επαγγελματισμό.</p>
+        </div>
+        <div class="about-photo">
+          <img
+            src="driveon-assets/storefront_driveon.jpg"
+            alt="Πρόσοψη Σχολής Οδηγών Drive On - Φιλαρέτου 129 &amp; Ακροπόλεως 15, Καλλιθέα"
+          />
+        </div>
       </div>
     </div>
   </section>

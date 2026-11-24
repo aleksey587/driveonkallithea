@@ -1785,7 +1785,7 @@
         modalIntro.textContent = data.intro;
         activeServiceValue = data.selectValue;
 
-        modalList.innerHTML = '';
+        modalList.textContent = '';
         data.points.forEach(function (pt) {
           const li = document.createElement('li');
           li.textContent = pt;

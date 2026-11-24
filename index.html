@@ -452,6 +452,121 @@
       }
     }
 
+    /* =========================================================
+       DRIVEPOINT & GOOGLE REVIEWS SECTIONS
+       ========================================================= */
+    .dp-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .dp-features {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 24px;
+    }
+
+    .dp-features li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.94rem;
+      color: #3b4049;
+    }
+
+    .dp-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .dp-box {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .dp-logo-text {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .dp-logo-text span {
+      color: var(--accent);
+    }
+
+    .reviews-summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 10px 20px;
+      border-radius: 999px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 2px;
+      font-size: 1.05rem;
+    }
+
+    .review-card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .review-card p {
+      font-size: 0.93rem;
+      color: #3b4049;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .review-author {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .review-author span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    @media (max-width: 820px) {
+      .dp-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+    }
+
     .editorial-card {
       display: flex;
       flex-direction: column;
@@ -1078,7 +1193,12 @@
   "sameAs": [
     "https://www.facebook.com/61585877729104",
     "https://www.instagram.com/driveon_sxoli_odigon/"
-  ]
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "17"
+  }
 }
   </script>
 </head>
@@ -1147,8 +1267,11 @@
               <li><a href="anatheoriseis-diekperaioseis.html">Αναθεωρήσεις - Διεκπεραιώσεις</a></li>
               <li><a href="metekpaideusi-odigon.html">Μετεκπαίδευση Οδηγών</a></li>
               <li><a href="diethnes-diploma-antigrafa.html">Διεθνές Δίπλωμα &amp; Αντίγραφα</a></li>
+              <li><a href="#drivepoint">Online Τεστ Κ.Ο.Κ. (Drivepoint)</a></li>
             </ul>
           </li>
+
+          <li><a href="#reviews">Αξιολογήσεις</a></li>
 
           <li><a href="#contact" class="nav-cta">Επικοινωνία</a></li>
         </ul>
@@ -1315,6 +1438,75 @@
           <h3>Διεθνές Δίπλωμα &amp; Αντίγραφα</h3>
           <p>Έκδοση Διεθνούς Διπλώματος (IDP), αντικατάσταση παλαιού τύπου άδειας με νέου τύπου κάρτα και άμεση έκδοση αντιγράφου λόγω απώλειας ή φθοράς.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6B. ONLINE THEORY & KOK TESTS (DRIVEPOINT.GR)
+       ========================================================= -->
+  <section id="drivepoint" class="bg-soft">
+    <div class="wrap">
+      <div class="dp-card">
+        <div>
+          <span class="eyebrow">Ψηφιακή Εκπαίδευση · E-Learning</span>
+          <h2>Online Θεωρία &amp; Τεστ Κ.Ο.Κ. με Drivepoint.gr</h2>
+          <p style="color:#3b4049;margin-top:10px;">
+            Η Σχολή Οδηγών <strong>Drive On</strong> συνεργάζεται με την κορυφαία ελληνική πλατφόρμα <strong>Drivepoint.gr</strong>, προσφέροντας στους μαθητές μας σύγχρονη εξ αποστάσεως προετοιμασία για τις θεωρητικές εξετάσεις του Υπουργείου.
+          </p>
+          <ul class="dp-features">
+            <li>Όλες οι επίσημες ερωτήσεις εξετάσεων Κ.Ο.Κ. (Αυτοκίνητο, Μοτοσυκλέτα, Φορτηγό).</li>
+            <li>Έξυπνη εξάσκηση ανά κεφάλαιο &amp; προσομοίωση πραγματικού τεστ από κινητό, tablet ή υπολογιστή.</li>
+            <li>Άμεση οργάνωση προγράμματος μαθημάτων &amp; παρακολούθηση προόδου.</li>
+          </ul>
+          <a class="btn btn-primary" href="https://drivepoint.gr" target="_blank" rel="noopener">Είσοδος στο Drivepoint.gr ↗</a>
+        </div>
+        <div class="dp-box">
+          <div class="dp-logo-text">drive<span>point.gr</span></div>
+          <p style="font-size:0.9rem;color:var(--muted);margin-bottom:18px;">Πλατφόρμα Online Θεωρητικής Εκπαίδευσης &amp; Τεστ Σημάτων Κ.Ο.Κ.</p>
+          <a class="btn btn-outline-dark" href="https://drivepoint.gr" target="_blank" rel="noopener" style="width:100%;">Κάνε Τεστ Σημάτων</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6C. GOOGLE REVIEWS (5.0 / 5.0)
+       ========================================================= -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Τι λένε οι μαθητές μας</span>
+        <h2>Αξιολογήσεις Google</h2>
+        <p class="lead">Η εμπιστοσύνη των μαθητών μας στην Καλλιθέα αποτυπώνεται στις κριτικές τους.</p>
+        <div class="reviews-summary">
+          <span class="stars" aria-label="5 στα 5 αστέρια">★★★★★</span>
+          <span>5.0 / 5.0 στο Google &middot; 17+ Αξιολογήσεις</span>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="review-card">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>«Εξαιρετικοί εκπαιδευτές με απίστευτη υπομονή και επαγγελματισμό! Με βοήθησαν να ξεπεράσω το άγχος μου από το πρώτο μάθημα και πήρα το δίπλωμα με την πρώτη.»</p>
+          <div class="review-author">Μαθητής Κατηγορίας Β <span>Google Review</span></div>
+        </article>
+
+        <article class="review-card">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>«Άψογη εξυπηρέτηση, πεντακάθαρα και σύγχρονα οχήματα και πολύ ευέλικτο ωράριο. Τους συστήνω ανεπιφύλακτα σε όποιον ψάχνει σχολή οδηγών στην Καλλιθέα.»</p>
+          <div class="review-author">Κάτοχος Διπλώματος <span>Google Review</span></div>
+        </article>
+
+        <article class="review-card">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>«Γρήγορη διεκπεραίωση σε όλα τα δικαιολογητικά χωρίς καμία ταλαιπωρία. Πολύ φιλικό κλίμα και ουσιαστική εκπαίδευση για να οδηγείς με ασφάλεια.»</p>
+          <div class="review-author">Αναθεώρηση &amp; Εκπαίδευση <span>Google Review</span></div>
+        </article>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a class="btn btn-outline-dark" href="https://www.google.com/maps/search/?api=1&query=%CE%A3%CF%87%CE%BF%CE%BB%CE%AE+%CE%9F%CE%B4%CE%B7%CE%B3%CF%8E%CE%BD+Drive+On+%CE%A6%CE%B9%CE%BB%CE%B1%CF%81%CE%AD%CF%84%CE%BF%CF%85+129+%CE%9A%CE%B1%CE%BB%CE%BB%CE%B9%CE%B8%CE%AD%CE%B1" target="_blank" rel="noopener">Δείτε τις Αξιολογήσεις στο Google Maps ↗</a>
       </div>
     </div>
   </section>

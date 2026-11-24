@@ -1598,7 +1598,7 @@
             <textarea id="fNotes" name="notes" placeholder="Γράψτε μας προτιμώμενες ώρες ή οποιαδήποτε ερώτηση..."></textarea>
           </div>
 
-          <button class="btn btn-primary" type="submit">Αποστολή μέσω WhatsApp</button>
+          <button class="btn btn-primary" type="submit">Αποστολή Μηνύματος (Email &amp; WhatsApp)</button>
           <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -1834,12 +1834,25 @@
       });
 
       /* ---------------------------------------------------------
-         4. CONTACT FORM -> PRE-FILLED WHATSAPP MESSAGE
+         4. CONTACT FORM -> EMAIL (driveonkallithea@gmail.com) + WHATSAPP
          --------------------------------------------------------- */
       const contactForm = document.getElementById('contactForm');
       const formStatus = document.getElementById('formStatus');
 
-      contactForm.addEventListener('submit', function (e) {
+      function setFormStatusWithWa(prefixText, waUrl) {
+        formStatus.textContent = '';
+        formStatus.appendChild(document.createTextNode(prefixText + ' '));
+        const a = document.createElement('a');
+        a.href = waUrl;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = 'πατήστε εδώ για αποστολή και στο WhatsApp';
+        formStatus.appendChild(a);
+        formStatus.appendChild(document.createTextNode('.'));
+        formStatus.classList.add('show');
+      }
+
+      contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         try {
           const name = document.getElementById('fName').value.trim();
@@ -1858,15 +1871,36 @@
           if (notes) lines.push('Σημειώσεις: ' + notes);
 
           const waUrl = 'https://wa.me/306987709305?text=' + encodeURIComponent(lines.join('\n'));
-          window.open(waUrl, '_blank', 'noopener');
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
 
-          formStatus.innerHTML =
-            '✓ Το μήνυμά σας ετοιμάστηκε! Αν δεν άνοιξε αυτόματα το WhatsApp, ' +
-            '<a href="' + waUrl + '" target="_blank" rel="noopener">πατήστε εδώ για αποστολή</a>.';
+          formStatus.textContent = '⏳ Αποστολή email στο driveonkallithea@gmail.com...';
           formStatus.classList.add('show');
-          contactForm.reset();
+
+          const res = await fetch('https://formsubmit.co/ajax/driveonkallithea@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              _subject: 'Νέο αίτημα από driveonkallithea.gr',
+              _template: 'table',
+              _captcha: 'false',
+              Ονοματεπώνυμο: name,
+              Τηλέφωνο: phone,
+              Υπηρεσία: service,
+              Σημειώσεις: notes || '-'
+            })
+          });
+
+          if (res.ok) {
+            setFormStatusWithWa('✓ Το email στάλθηκε στο driveonkallithea@gmail.com! Αν δεν άνοιξε αυτόματα το WhatsApp,', waUrl);
+            contactForm.reset();
+          } else {
+            setFormStatusWithWa('✓ Το μήνυμά σας ετοιμάστηκε για WhatsApp (για άμεση απάντηση,', waUrl);
+          }
         } catch (err) {
-          formStatus.textContent = 'Παρουσιάστηκε σφάλμα. Παρακαλούμε καλέστε μας στο 211 0088403.';
+          formStatus.textContent = 'Παρουσιάστηκε σφάλμα δικτύου. Παρακαλούμε καλέστε μας στο 211 0088403.';
           formStatus.classList.add('show');
         }
       });

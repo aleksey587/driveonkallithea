@@ -1248,7 +1248,7 @@
     "+306987709305",
     "+306986910564"
   ],
-  "email": "driveonkallithea@gmail.com",
+  "email": "info@driveonkallithea.gr",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Φιλαρέτου 129 & Ακροπόλεως 15",
@@ -1641,6 +1641,11 @@
           </div>
 
           <div class="info-item">
+            <b>Email</b>
+            <a href="mailto:info@driveonkallithea.gr">info@driveonkallithea.gr</a>
+          </div>
+
+          <div class="info-item">
             <b>Ωράριο Λειτουργίας</b>
             <span>Δευτέρα - Παρασκευή: 09:00 - 21:00<br />Σάββατο: Κατόπιν ραντεβού &middot; Κυριακή: Κλειστά</span>
           </div>
@@ -2001,19 +2006,19 @@
           const waUrl = 'https://wa.me/306987709305?text=' + encodeURIComponent(lines.join('\n'));
           window.open(waUrl, '_blank', 'noopener,noreferrer');
 
-          formStatus.textContent = '⏳ Αποστολή email στο driveonkallithea@gmail.com...';
+          formStatus.textContent = '⏳ Αποστολή μηνύματος...';
           formStatus.classList.add('show');
 
-          const res = await fetch('https://formsubmit.co/ajax/driveonkallithea@gmail.com', {
+          const res = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
             body: JSON.stringify({
-              _subject: 'Νέο αίτημα από driveonkallithea.gr',
-              _template: 'table',
-              _captcha: 'false',
+              access_key: '4f324bd0-53f7-47ca-bcbc-d68529f65536',
+              subject: 'Νέο αίτημα από driveonkallithea.gr',
+              from_name: 'Σχολή Οδηγών Drive On',
               Ονοματεπώνυμο: name,
               Τηλέφωνο: phone,
               Υπηρεσία: service,
@@ -2021,8 +2026,9 @@
             })
           });
 
-          if (res.ok) {
-            setFormStatusWithWa('✓ Το email στάλθηκε στο driveonkallithea@gmail.com! Αν δεν άνοιξε αυτόματα το WhatsApp,', waUrl);
+          const data = await res.json().catch(function () { return {}; });
+          if (res.ok && data.success) {
+            setFormStatusWithWa('✓ Το μήνυμά σας στάλθηκε με επιτυχία! Αν δεν άνοιξε αυτόματα το WhatsApp,', waUrl);
             contactForm.reset();
           } else {
             setFormStatusWithWa('✓ Το μήνυμά σας ετοιμάστηκε για WhatsApp (για άμεση απάντηση,', waUrl);
